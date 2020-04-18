@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "b266d664-a6ed-4bbb-8ec1-86eca95ef2eb",
+		"name": "RMI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Chat",
+			"item": [
+				{
+					"name": "Post & Create Thread",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"text\": \"rep\",\n\t\"reply_to\": \"1586549720.000100\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9501/chats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9501",
+							"path": [
+								"chats"
+							]
+						},
+						"description": "post message\n\nYou Can set reply_to to create thread and reply\n\nreply_to is timestamp of message"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"ts\": \"1586549754.000200\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9501/chats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9501",
+							"path": [
+								"chats"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Reaction",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"reply_to\": \"1586549720.000100\",\n\t\"name\": \"thumbsup\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9501/reactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9501",
+							"path": [
+								"reactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"timestamp\": \"1586549720.000100\",\n\t\"name\": \"thumbsup\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9501/reactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9501",
+							"path": [
+								"reactions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Channel",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9501/channels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9501",
+							"path": [
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9501/channels?channel=C011C4TEDK9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9501",
+							"path": [
+								"channels"
+							],
+							"query": [
+								{
+									"key": "channel",
+									"value": "C011C4TEDK9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Join",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"mychannel\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9501/channels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9501",
+							"path": [
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Leave",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"channel\": \"C011C4TEDK9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9501/channels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9501",
+							"path": [
+								"channels"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Oauth",
+			"item": [
+				{
+					"name": "Test Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9501/oauth?token=123123&action=test",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9501",
+							"path": [
+								"oauth"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "123123"
+								},
+								{
+									"key": "action",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Access Token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9501/oauth?code=1051478991574.1055855032307.bda53b509c1f491ea0739b5b27b62a33e2462c19dc4a0c786e90d3b24a7a2c8c&action=access",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9501",
+							"path": [
+								"oauth"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "1051478991574.1055855032307.bda53b509c1f491ea0739b5b27b62a33e2462c19dc4a0c786e90d3b24a7a2c8c"
+								},
+								{
+									"key": "action",
+									"value": "access"
+								}
+							]
+						},
+						"description": "to get code you can use\n\nhttps://slack.com/oauth/authorize?client_id=1051478991574.1054408866133&scope=channels:read&redirect_uri=http://localhost&team=RMI_HZ&tracked=1"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
